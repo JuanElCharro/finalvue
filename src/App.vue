@@ -1,10 +1,26 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <Titulo />
+    <div id="nav">
+      <router-link to="/" class="seccion">Inicio</router-link>
+      <router-link to="/articulos" class="seccion">Artículos</router-link>
+      <router-link to="/acercaDe" class="seccion">Acerca De</router-link>
+    </div>
+    <div id="vistas">
+      <router-view />
+    </div>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import Titulo from "./components/Titulo.vue";
+export default {
+  name: "Inicio",
+  components: {
+    Titulo,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -15,8 +31,28 @@
   color: #2c3e50;
 }
 
-#nav {
+#vistas {
+  float: right;
+  width: 80%;
+  box-sizing: border-box;
   padding: 30px;
+}
+
+.seccion {
+  display: block;
+  padding: 50 0;
+}
+
+#nav {
+  float: left;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-top: 150px;
+  background-color: aliceblue;
 }
 
 #nav a {
