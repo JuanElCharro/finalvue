@@ -7,7 +7,7 @@ export default {
   name:"Titulo",
   data() {
     return {
-      titulo: "Periódico El Elemental"
+      titulo: "La Liga de Fútbol"
     }
   }
 }
@@ -16,8 +16,10 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  color: blue;
-  background-color: aliceblue;
+  font-style: italic;
+  color: rgb(0, 0, 126);
+  background-color: rgb(99, 0, 192);
+  background-image: linear-gradient(-90deg, blueviolet, white);
   padding: 25px;
 }
 </style>

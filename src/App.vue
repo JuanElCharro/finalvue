@@ -3,8 +3,13 @@
     <Titulo />
     <div id="nav">
       <router-link to="/" class="seccion">Inicio</router-link>
-      <router-link to="/articulos" class="seccion">Artículos</router-link>
-      <router-link to="/acercaDe" class="seccion">Acerca De</router-link>
+      <router-link to="/clasificacion" class="seccion">Clasificación</router-link>
+      <router-link to="/jornadas" class="seccion">Jornadas</router-link>
+      <router-link to="/nuevopartido" class="seccion">Nuevo Partido</router-link>
+      <router-link to="/equipos" class="seccion">Equipos</router-link>
+      <router-link to="/jugadores" class="seccion">Jugadores</router-link>
+      <router-link to="/nuevojugador" class="seccion">Nuevo Jugador</router-link>
+      <router-link to="/eliminarjugador" class="seccion">Eliminar Jugador</router-link>
     </div>
     <div id="vistas">
       <router-view />
@@ -28,7 +33,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #9b94d8;
 }
 
 #vistas {
@@ -52,15 +57,18 @@ export default {
   box-sizing: border-box;
   padding: 30px;
   padding-top: 150px;
-  background-color: aliceblue;
+  background-color: rgb(243, 150, 10);
+  background-image: linear-gradient(0deg, rgb(243, 150, 10), white);
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #0d3e70;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #6a0094;
+  font-size: 25px;
 }
+
 </style>
