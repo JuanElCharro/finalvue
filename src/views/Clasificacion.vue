@@ -1,4 +1,5 @@
 <template>
+  <div id="clasificacionDeLaLigaTitulo">CLASIFICACIÓN DE LA LIGA</div>
   <table>
     <colgroup>
       <col span="2" />
@@ -54,7 +55,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 p {
   font-size: 20px;
 }
@@ -79,5 +80,11 @@ tr:nth-child(even) {
 #info {
   padding-top: 1em;
   float: left;
+}
+
+#clasificacionDeLaLigaTitulo {
+  font-size: 20px;
+  padding-bottom: 2em;
+  color: #5e5757;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table id="tablaMostrarJugadoresVista">
     <colgroup>
       <col span="2" />
     </colgroup>
@@ -27,10 +27,10 @@ export default {
 </script>
 
 <style scoped>
-table {
+#tablaMostrarJugadoresVista {
+  width: 19%;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 15%;
   float: right;
 }
 

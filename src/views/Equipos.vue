@@ -1,14 +1,23 @@
 <template>
+  <div id="EquiposDeLaLigaTitulo">EQUIPOS DE LA LIGA</div>
   <table>
     <colgroup>
       <col span="2" />
     </colgroup>
-    <tr>
-      <th span v-for="(equipos, index) in listaEquipos" :key="index">{{equipos.name}}</th>
+    <tr span v-for="(equipos, index) in listaEquipos" :key="index">
+      <th>{{ equipos.name }}</th>
+      <td v-for="(jugadores, index) in listaJugadores" :key="index">
+        {{ jugadores.name }}
+      </td>
     </tr>
+
+    <!-- 
     <tr span v-for="(jugadores, index) in listaJugadores" :key="index">
-      <td v-if="comprobarJugador(equipos.name, jugadores.team) === true">{{equipos.name}}</td>
+      <td v-if="comprobarJugador(equipos.name, jugadores.team) === true">
+        {{ jugadores.name }}
+      </td>
     </tr>
+    -->
   </table>
 </template>
 
@@ -37,6 +46,13 @@ export default {
         }
       }
       return datoEncontrado;
+    },
+    computed: {
+      listaJugadores: function () {
+        if (comprobarJugador(equipos.name, jugadores.team) === true) {
+          return true;
+        }
+      },
     },
   },
 };
@@ -68,5 +84,11 @@ tr:nth-child(even) {
 #info {
   padding-top: 1em;
   float: left;
+}
+
+#EquiposDeLaLigaTitulo {
+  font-size: 20px;
+  padding-bottom: 2em;
+  color: #5e5757;
 }
 </style>

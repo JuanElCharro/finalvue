@@ -1,6 +1,6 @@
 <template>
   <div id="encuadre">
-    <p>Nuevo Partido</p>
+    <div id="nuevoPartidoTitulo">NUEVO PARTIDO</div>
 
     <select v-model="equipoUnoSeleccionado" name="team1">
       <option v-for="(partidos, index) in listaPartidos" :key="index">
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 select {
   background-color: DodgerBlue;
   border: 2px solid DodgerBlue;
@@ -116,5 +116,12 @@ p {
   width: 100px;
   font: bold 15px arial, sans-serif;
   text-shadow: none;
+}
+
+#nuevoPartidoTitulo {
+  font-size: 20px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #5e5757;
 }
 </style>
