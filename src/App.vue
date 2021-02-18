@@ -5,11 +5,11 @@
       <router-link to="/" class="seccion">Inicio</router-link>
       <router-link to="/clasificacion" class="seccion">Clasificación</router-link>
       <router-link to="/jornadas" class="seccion">Jornadas</router-link>
-      <router-link to="/nuevopartido" class="seccion">Nuevo Partido</router-link>
+      <router-link id="nuevoPartido" to="/nuevopartido" class="seccion">Nuevo Partido</router-link>
       <router-link to="/equipos" class="seccion">Equipos</router-link>
       <router-link to="/jugadores" class="seccion">Jugadores</router-link>
-      <router-link to="/nuevojugador" class="seccion">Nuevo Jugador</router-link>
-      <router-link to="/eliminarjugador" class="seccion">Eliminar Jugador</router-link>
+      <router-link id="nuevoJugador" to="/nuevojugador" class="seccion">Nuevo Jugador</router-link>
+      <router-link id="eliminarJugador" to="/eliminarjugador" class="seccion">Eliminar Jugador</router-link>
     </div>
     <div id="vistas">
       <router-view />
@@ -46,6 +46,7 @@ export default {
 .seccion {
   display: block;
   padding: 50 0;
+  text-align: left;
 }
 
 #nav {
@@ -69,6 +70,18 @@ export default {
 #nav a.router-link-exact-active {
   color: #6a0094;
   font-size: 25px;
+}
+
+#nuevoPartido{
+  padding-left: 2em;
+}
+
+#nuevoJugador{
+  padding-left: 2em;
+}
+
+#eliminarJugador{
+  padding-left: 2em;
 }
 
 </style>
