@@ -1,5 +1,6 @@
 <template>
-  <h1>{{ titulo }}</h1>
+  <h1>{{ titulo }} <span class="creador">por {{ propietario }}</span></h1>
+  
 </template>
 
 <script>
@@ -7,7 +8,8 @@ export default {
   name:"Titulo",
   data() {
     return {
-      titulo: "La Liga de Fútbol"
+      titulo: "La Liga de Fútbol",
+      propietario: "Juan García Hernández"
     }
   }
 }
@@ -21,5 +23,10 @@ h1 {
   background-color: rgb(99, 0, 192);
   background-image: linear-gradient(-90deg, blueviolet, white);
   padding: 25px;
+}
+
+.creador{
+  font-style: normal;
+  font-size: 20px;
 }
 </style>

@@ -47,6 +47,7 @@ export default {
   display: block;
   padding: 50 0;
   text-align: left;
+  padding-bottom: 1em;
 }
 
 #nav {
