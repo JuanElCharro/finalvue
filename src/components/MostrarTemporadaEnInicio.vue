@@ -1,11 +1,7 @@
 <template>
   <div>
-    <img
-      src="https://img.pngio.com/download-logo-laliga-spain-football-svg-eps-png-psd-ai-vector-el-la-liga-logo-png-1158_1600.png"
-      alt="La Liga"
-    />
     <div span v-for="(partidos, index) in listaPartidos" :key="index">
-      <p v-if="partidos.id === 1">Temporada: {{ partidos.round }}</p>
+      <p>Temporada: {{ partidos.round }}</p>
     </div>
   </div>
 </template>
@@ -14,7 +10,6 @@
 import axios from "axios";
 
 export default {
-  name: "Inicio",
   data: () => ({
     listaPartidos: [],
   }),
@@ -27,12 +22,7 @@ export default {
 </script>
 
 <style scoped>
-img {
-  max-width: 400px;
-  max-height: 400px;
-}
-
-P {
+p {
   font-weight: bolder;
   color: brown;
 }
