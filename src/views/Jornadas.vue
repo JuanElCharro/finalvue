@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>Jornadas</div>
+</template>
 
 
 <script></script>

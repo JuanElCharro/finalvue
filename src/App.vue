@@ -69,7 +69,11 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #6a0094;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+div{
+  color: black;
 }
 
 #nuevoPartido{

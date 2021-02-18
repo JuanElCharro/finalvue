@@ -1,5 +1,5 @@
 <template>
-    <div>Equipos</div>
+    <div>Jugadores</div>
 </template>
 
 <script></script>

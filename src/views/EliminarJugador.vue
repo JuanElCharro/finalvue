@@ -1,5 +1,5 @@
 <template>
-    <div>Equipos</div>
+    <div>Eliminar Jugador</div>
 </template>
 
 <script></script>

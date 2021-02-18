@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
   img{
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 400px;
+    max-height: 400px;
   }
 </style>

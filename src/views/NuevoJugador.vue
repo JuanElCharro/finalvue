@@ -1,5 +1,5 @@
 <template>
-    <div>Equipos</div>
+    <div>Nuevo Jugador</div>
 </template>
 
 <script></script>

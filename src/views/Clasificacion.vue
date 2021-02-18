@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>Clasificacion</div>
+</template>
 
 <script></script>
 
