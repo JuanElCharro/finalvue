@@ -1,0 +1,46 @@
+<template>
+  <table>
+    <colgroup>
+      <col span="2" />
+    </colgroup>
+    <tr>
+      <th>Jugadores</th>
+    </tr>
+    <tr span v-for="(jugadores, index) in listaJugadores" :key="index">
+      <td>{{ jugadores.name }}</td>
+    </tr>
+  </table>
+</template>
+
+<script>
+import axios from "axios";
+export default {
+  data: () => ({
+    listaJugadores: [],
+  }),
+  created() {
+    axios.get("http://localhost:3000/players").then((result) => {
+      this.listaJugadores = result.data;
+    });
+  },
+};
+</script>
+
+<style scoped>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 15%;
+  float: right;
+}
+
+td, th {
+  border: 1px solid #5e5757;
+  text-align: center;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(100, 255, 152);
+}
+</style>

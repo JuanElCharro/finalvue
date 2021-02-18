@@ -4,26 +4,27 @@
       <col span="2" />
     </colgroup>
     <tr>
-      <th>Puesto</th>
+      <th>Clasificación</th>
       <th>Nombre</th>
       <th>País</th>
       <th>Puntos</th>
-      <th>Jugadores</th>
     </tr>
     <tr span v-for="(equipos, index) in listaEquipos" :key="index">
       <td>{{ index }}</td>
       <td>{{ equipos.name }}</td>
       <td>{{ equipos.country }}</td>
       <td>{{ equipos.points }}</td>
-      <td>{{}}</td>
     </tr>
   </table>
-  <div id="info">Haga click sobre el nombre del equipo para mostrar a los Jugadores</div>
+  <MostrarJugadores/>
+  <div id="info">Haga click sobre el nombre del equipo para mostrar a los Jugadores.</div>
 </template>
 
 <script>
 import axios from "axios";
+import MostrarJugadores from '../components/MostrarJugadores.vue';
 export default {
+  components: { MostrarJugadores },
   data: () => ({
     listaEquipos: [],
   }),
@@ -43,7 +44,7 @@ p {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 
 td, th {
@@ -56,13 +57,8 @@ tr:nth-child(even) {
   background-color: rgb(255, 100, 100);
 }
 
-th,
-td {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
 #info{
     padding-top: 1em;
+    float: left;
 }
 </style>
