@@ -1,6 +1,7 @@
 <template>
   <div id="clasificacionDeLaLigaTitulo">CLASIFICACIÓN DE LA LIGA</div>
-  <table>
+  <div id="floatLeft">
+    <table>
     <colgroup>
       <col span="2" />
     </colgroup>
@@ -17,9 +18,10 @@
       <td>{{ equipos.points }}</td>
     </tr>
   </table>
-  <MostrarJugadores :nombreEquipo = "nombreEqVar"/>
-  <div id="info">
-    Haga click sobre el nombre del equipo para mostrar a los Jugadores.
+  </div>
+  
+  <div id="floatRight">
+    <MostrarJugadores :nombreEquipo = "nombreEqVar"/>
   </div>
 </template>
 
@@ -57,7 +59,15 @@ p {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 80%;
+}
+
+#floatLeft{
+  float: left;
+
+}
+
+#floatRight{
+  float: right;
 }
 
 td,

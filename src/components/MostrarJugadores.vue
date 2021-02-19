@@ -29,10 +29,8 @@ export default {
 
 <style scoped>
 #tablaMostrarJugadoresVista {
-  width: 19%;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  float: right;
 }
 
 td, th {
