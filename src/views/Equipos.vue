@@ -6,7 +6,7 @@
       <tr span v-for="(equipos, index) in listaEquipos" :key="index">
         <th>{{ equipos.name }}</th>
         <td v-for="(jugadores, index) in listaJugadores" :key="index">
-          {{ jugadores.name }}
+          <span v-if="equipos.name == jugadores.team">{{ jugadores.name }}</span>
         </td>
         <td id="boton"><button>Nuevo Jugador</button></td>
       </tr>
@@ -19,6 +19,7 @@ export default {
   data: () => ({
     listaEquipos: [],
     listaJugadores: [],
+    equipox: 0,
   }),
   async created() {
     await axios.get("http://localhost:3000/clubs").then((result) => {
@@ -27,25 +28,6 @@ export default {
       await axios.get("http://localhost:3000/players").then((result) => {
         this.listaJugadores = result.data;
       });
-  },
-  methods: {
-    comprobarJugador(equipos, jugadores) {
-      let datoEncontrado = false;
-      for (let i = 0; i < jugadores.length; i++) {
-        if (jugadores[i].team === equipos.team) {
-          datoEncontrado = true;
-          break;
-        }
-      }
-      return datoEncontrado;
-    },
-    computed: {
-      listaJugadores: function () {
-        if (comprobarJugador(equipos.name, jugadores.team) === true) {
-          return true;
-        }
-      },
-    },
   },
 };
 </script>
@@ -79,7 +61,7 @@ th {
 }
 
 th {
-  width: 20%;
+  width: 15%;
   background-color: rgb(255, 212, 72);
   border: 2px solid rgb(0, 0, 0);
 }
