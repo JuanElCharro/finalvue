@@ -1,6 +1,5 @@
 <template>
-  <div id="clasificacionDeLaLigaTitulo">CLASIFICACIÓN DE LA LIGA</div>
-  <div id="floatLeft">
+  <div id="divA">
     <table>
     <colgroup>
       <col span="2" />
@@ -20,7 +19,7 @@
   </table>
   </div>
   
-  <div id="floatRight">
+  <div id="divB">
     <MostrarJugadores :nombreEquipo = "nombreEqVar"/>
   </div>
 </template>
@@ -59,14 +58,16 @@ p {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
+  width: 100%;
 }
 
-#floatLeft{
+#divA{
+  width: 900px;
   float: left;
-
 }
 
-#floatRight{
+#divB{
+  width: 150px;
   float: right;
 }
 
