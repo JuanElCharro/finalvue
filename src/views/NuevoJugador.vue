@@ -34,8 +34,8 @@
       max="100"
     />
     <br />
-
-    <input id="botonEnviar" type="submit" value="Enviar" />
+    
+    <button id="botonEnviar">Enviar</button>
   </div>
 </template>
 
