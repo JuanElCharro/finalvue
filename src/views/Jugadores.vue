@@ -5,18 +5,26 @@
       <col span="2" />
     </colgroup>
     <tr span v-for="(equipos, index) in listaEquipos" :key="index">
-      <th>{{ equipos.name }}</th>
-      <td></td>
+      <th v-on:click="metodoClick(equipos.name)">{{ equipos.name }}</th>
+      <td v-for="(jugadores, index) in listaJugadores" :key="index">
+        <span v-if="equipos.name == jugadores.team"
+          ><MostrarJugadores :nombreEquipo="nombreEqVar" />
+        </span>
+      </td>
     </tr>
   </table>
 </template>
 
 <script>
 import axios from "axios";
+import MostrarJugadores from "../components/MostrarJugadores.vue";
 export default {
+  components: { MostrarJugadores },
   data: () => ({
     listaEquipos: [],
     listaJugadores: [],
+    nombreEqVar: 0,
+    contador: 0,
   }),
   created() {
     axios.get("http://localhost:3000/clubs").then((result) => {
@@ -37,6 +45,16 @@ export default {
       }
       return datoEncontrado;
     },
+    metodoClick(dato) {
+      this.nombreEqVar = dato;
+    },
+    computed: {
+      listaJugadores: function () {
+        if (this.nombreEqVar == equipos.name) {
+          true;
+        }
+      }
+    }
   },
 };
 </script>

@@ -41,7 +41,7 @@
     />
     <br />
 
-    <button id="botonEnviar">Enviar</button>
+    <button @click="persist" id="botonEnviar">Enviar</button>
   </div>
 </template>
 
@@ -50,11 +50,42 @@ import axios from "axios";
 export default {
   data: () => ({
     listaPartidos: [],
+    team1: "",
+    team2: "",
+    golesEquipoUno: 0,
+    golesEquipoDos: 0,
+    fechaPartido: "",
   }),
   created() {
     axios.get("http://localhost:3000/matches").then((result) => {
       this.listaPartidos = result.data;
-    });
+    },/*
+    axios.post("http://localhost:3000/matches", post).then((result) => {
+    console.log(result);
+     })*/
+    );
+  },
+  mounted() {
+    if (localStorage.team1) {
+      this.team1 = localStorage.team1;
+    }
+    if (localStorage.team2) {
+      this.team2 = localStorage.team2;
+    }
+    if (localStorage.golesEquipoUno) {
+      this.golesEquipoUno = localStorage.golesEquipoUno;
+    }
+    if (localStorage.golesEquipoDos) {
+      this.golesEquipoDos = localStorage.golesEquipoDos;
+    }
+  },
+  methods: {
+    persist() {
+      localStorage.name = this.team1;
+      localStorage.age = this.team2;
+      localStorage.age = this.golesEquipoUno;
+      localStorage.age = this.golesEquipoDos;
+    },
   },
 };
 </script>

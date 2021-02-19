@@ -5,7 +5,7 @@
       alt="La Liga"
     />
     <div span v-for="(partidos, index) in listaPartidos" :key="index">
-      <p v-if="partidos.id === 1">Temporada: {{ partidos.round }}</p>
+      <p v-if="partidos.id == listaPartidos.length">Temporada: {{ partidos.round }}</p>
     </div>
   </div>
 </template>
@@ -17,11 +17,17 @@ export default {
   name: "Inicio",
   data: () => ({
     listaPartidos: [],
+    contador: 0,
   }),
   created() {
     axios.get("http://localhost:3000/matches").then((result) => {
       this.listaPartidos = result.data;
     });
+  },
+  methods: {
+    contar(index) {
+      this.contador = index;
+    },
   },
 };
 </script>

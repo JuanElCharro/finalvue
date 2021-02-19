@@ -23,7 +23,7 @@ export default {
       this.listaJugadores = result.data;
     });
   },
-  props: ['nombreEquipo']
+  props: ['nombreEquipo'],
 };
 </script>
 
