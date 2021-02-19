@@ -10,7 +10,6 @@
       <td v-if="jugadores.team == nombreEquipo">{{ jugadores.name }}</td>
     </tr>
   </table>
-  <span>{{nombreEquipo}}</span>
 </template>
 
 <script>
