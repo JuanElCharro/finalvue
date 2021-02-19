@@ -6,9 +6,8 @@
       <tr span v-for="(equipos, index) in listaEquipos" :key="index">
         <th>{{ equipos.name }}</th>
         <td v-for="(jugadores, index) in listaJugadores" :key="index">
-          <span v-if="equipos.name == jugadores.team">{{ jugadores.name }}</span>
+          <span v-if="equipos.name == jugadores.team">{{ jugadores.name }} <button>Nuevo Jugador</button></span>
         </td>
-        <td id="boton"><button>Nuevo Jugador</button></td>
       </tr>
     </table>
 </template>
