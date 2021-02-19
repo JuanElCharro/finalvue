@@ -62,12 +62,12 @@ table {
 }
 
 #divA{
-  width: 900px;
+  width: 80%;
   float: left;
 }
 
 #divB{
-  width: 150px;
+  width: 15%;
   float: right;
 }
 
