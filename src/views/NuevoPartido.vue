@@ -57,12 +57,20 @@ export default {
     fechaPartido: "",
   }),
   created() {
-    axios.get("http://localhost:3000/matches").then((result) => {
-      this.listaPartidos = result.data;
-    },/*
-    axios.post("http://localhost:3000/matches", post).then((result) => {
-    console.log(result);
-     })*/
+    axios.get("http://localhost:3000/matches").then(
+      (result) => {
+        this.listaPartidos = result.data;
+      },
+      axios
+        .post("http://localhost:3000/matches", {
+          
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
     );
   },
   mounted() {
