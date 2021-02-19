@@ -39,7 +39,11 @@ td, th {
   padding: 4px;
 }
 
-tr:nth-child(even) {
-  background-color: rgb(100, 255, 152);
+th{
+  background-color: rgb(60, 199, 106);
+}
+
+tr {
+  background-color:white;
 }
 </style>

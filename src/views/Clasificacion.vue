@@ -79,7 +79,7 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: rgb(255, 100, 100);
+  background-color: rgb(199, 199, 199);
 }
 
 #info {

@@ -1,30 +1,22 @@
 <template>
-  <div id="EquiposDeLaLigaTitulo">EQUIPOS DE LA LIGA</div>
-  <table>
-    <colgroup>
-      <col span="2" />
-    </colgroup>
-    <tr span v-for="(equipos, index) in listaEquipos" :key="index">
-      <th>{{ equipos.name }}</th>
-      <td v-for="(jugadores, index) in listaJugadores" :key="index">
-        {{ jugadores.name }}
-      </td>
-    </tr>
-
-    <!-- 
-    <tr span v-for="(jugadores, index) in listaJugadores" :key="index">
-      <td v-if="comprobarJugador(equipos.name, jugadores.team) === true">
-        {{ jugadores.name }}
-      </td>
-    </tr>
-    -->
-  </table>
+    <table>
+      <colgroup>
+        <col span="2" />
+      </colgroup>
+      <tr span v-for="(equipos, index) in listaEquipos" :key="index">
+        <th>{{ equipos.name }}</th>
+        <td v-for="(jugadores, index) in listaJugadores" :key="index">
+          {{ jugadores.name }}
+        </td>
+        <td id="boton"><button>Nuevo Jugador</button></td>
+      </tr>
+    </table>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  data:  () => ({
+  data: () => ({
     listaEquipos: [],
     listaJugadores: [],
   }),
@@ -63,6 +55,11 @@ p {
   font-size: 20px;
 }
 
+button{
+  background-color: yellowgreen;
+  padding: 5px;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -75,11 +72,20 @@ th {
   text-align: center;
   padding: 4px;
   font-size: 14px;
+}
+
+#boton{
+  width: 10%;
+}
+
+th {
   width: 20%;
+  background-color: rgb(255, 212, 72);
+  border: 2px solid rgb(0, 0, 0);
 }
 
 tr:nth-child(even) {
-  background-color: rgb(255, 219, 100);
+  background-color: rgb(255, 236, 172);
 }
 
 #info {
@@ -87,9 +93,4 @@ tr:nth-child(even) {
   float: left;
 }
 
-#EquiposDeLaLigaTitulo {
-  font-size: 20px;
-  padding-bottom: 2em;
-  color: #5e5757;
-}
 </style>

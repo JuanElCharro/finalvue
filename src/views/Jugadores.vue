@@ -61,7 +61,7 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: rgb(117, 123, 206);
+  background-color: rgb(146, 150, 201);
 }
 
 #info {
