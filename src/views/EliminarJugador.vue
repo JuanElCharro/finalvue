@@ -2,17 +2,18 @@
   <div id="encuadre">
     <div id="eliminarJugadorTitulo">ELIMINAR JUGADOR</div>
 
-    <select v-model="equipoSeleccionado" name="team1">
+    <select v-model="equipoSeleccionado" name="team">
       <option v-for="(equipos, index) in listaEquipos" :key="index">
         {{ equipos.name }}
       </option>
     </select>
 
-    <select v-model="jugadorSeleccionado" name="team2">
+    <select v-model="jugadorSeleccionado" name="player">
       <option v-for="(jugadores, index) in listaJugadores" :key="index">
         {{ jugadores.name }}
-      </option></select
-    ><br />
+      </option>
+    </select>
+    <br />
 
     <input id="botonEnviar" type="submit" value="Enviar" />
   </div>
@@ -101,5 +102,4 @@ p {
   padding-bottom: 1em;
   color: #5e5757;
 }
-
 </style>

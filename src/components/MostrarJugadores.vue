@@ -6,10 +6,11 @@
     <tr>
       <th>Jugadores</th>
     </tr>
-    <tr span v-for="(jugadores, index) in listaJugadores" :key="index">
-      <td>{{ jugadores.name }}</td>
+    <tr v-for="(jugadores, index) in listaJugadores" :key="index">
+      <td v-if="jugadores.name == nombreEquipo">{{ jugadores.name }}</td>
     </tr>
   </table>
+  <span>{{nombreEquipo}}</span>
 </template>
 
 <script>
@@ -23,6 +24,7 @@ export default {
       this.listaJugadores = result.data;
     });
   },
+  props: ['nombreEquipo']
 };
 </script>
 

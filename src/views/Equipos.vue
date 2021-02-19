@@ -24,15 +24,15 @@
 <script>
 import axios from "axios";
 export default {
-  data: () => ({
+  data:  () => ({
     listaEquipos: [],
     listaJugadores: [],
   }),
-  created() {
-    axios.get("http://localhost:3000/clubs").then((result) => {
+  async created() {
+    await axios.get("http://localhost:3000/clubs").then((result) => {
       this.listaEquipos = result.data;
     }),
-      axios.get("http://localhost:3000/players").then((result) => {
+      await axios.get("http://localhost:3000/players").then((result) => {
         this.listaJugadores = result.data;
       });
   },
@@ -66,7 +66,7 @@ p {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 95%;
+  width: 100%;
 }
 
 td,
@@ -75,6 +75,7 @@ th {
   text-align: center;
   padding: 4px;
   font-size: 14px;
+  width: 20%;
 }
 
 tr:nth-child(even) {

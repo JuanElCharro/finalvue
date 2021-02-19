@@ -12,12 +12,12 @@
     </tr>
     <tr span v-for="(equipos, index) in listaEquipos" :key="index">
       <td>{{ index }}</td>
-      <td v-on:click="check(equipos.name)">{{ equipos.name }}</td>
+      <td v-on:click="metodoClick(equipos.name)">{{ equipos.name }}</td>
       <td>{{ equipos.country }}</td>
       <td>{{ equipos.points }}</td>
     </tr>
   </table>
-  <MostrarJugadores />
+  <MostrarJugadores :nombreEquipo = "nombreEqVar"/>
   <div id="info">
     Haga click sobre el nombre del equipo para mostrar a los Jugadores.
   </div>
@@ -31,6 +31,7 @@ export default {
   data: () => ({
     listaEquipos: [],
     listaJugadores: [],
+    nombreEqVar: 0,
   }),
   created() {
     axios.get("http://localhost:3000/clubs").then((result) => {
@@ -41,15 +42,8 @@ export default {
       });
   },
   methods: {
-    check(dato) {
-      let datoEncontrado = false;
-      for (let i = 0; i < listaJugadores.length; i++) {
-        if (listaJugadores[i].team === dato.team) {
-          datoEncontrado = true;
-          break;
-        }
-      }
-      return datoEncontrado;
+    metodoClick(dato) {
+      this.nombreEqVar = dato;
     },
   },
 };
