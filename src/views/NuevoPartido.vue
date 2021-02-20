@@ -2,6 +2,14 @@
   <div id="encuadre">
     <div id="nuevoPartidoTitulo">NUEVO PARTIDO</div>
 
+    
+
+    <select v-model="jornada" name="team1">
+      <option v-for="(partidos, index) in listaPartidos" :key="index">
+        {{ partidos.round }}
+      </option>
+    </select> <br>
+
     <select v-model="equipoUnoSeleccionado" name="team1">
       <option v-for="(partidos, index) in listaPartidos" :key="index">
         {{ partidos.team1 }}
@@ -41,7 +49,7 @@
     />
     <br />
 
-    <button @click="persist" id="botonEnviar">Enviar</button>
+    <button @click="guardarPartido()" id="botonEnviar">Enviar</button>
   </div>
 </template>
 
@@ -50,49 +58,28 @@ import axios from "axios";
 export default {
   data: () => ({
     listaPartidos: [],
-    team1: "",
-    team2: "",
+    id: 0,
+    jornada: "",
+    equipoUnoSeleccionado: "",
+    equipoDosSeleccionado: "",
     golesEquipoUno: 0,
     golesEquipoDos: 0,
     fechaPartido: "",
   }),
   created() {
-    axios.get("http://localhost:3000/matches").then(
-      (result) => {
-        this.listaPartidos = result.data;
-      },
-      axios
-        .post("http://localhost:3000/matches", {
-          
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    );
-  },
-  mounted() {
-    if (localStorage.team1) {
-      this.team1 = localStorage.team1;
-    }
-    if (localStorage.team2) {
-      this.team2 = localStorage.team2;
-    }
-    if (localStorage.golesEquipoUno) {
-      this.golesEquipoUno = localStorage.golesEquipoUno;
-    }
-    if (localStorage.golesEquipoDos) {
-      this.golesEquipoDos = localStorage.golesEquipoDos;
-    }
+    axios.get("http://localhost:3000/matches").then((result) => {
+      this.listaPartidos = result.data;
+    });
   },
   methods: {
-    persist() {
-      localStorage.name = this.team1;
-      localStorage.age = this.team2;
-      localStorage.age = this.golesEquipoUno;
-      localStorage.age = this.golesEquipoDos;
+    guardarPartido() {
+      axios.post("http://localhost:3000/matches", {
+        round: this.jornada,
+        date: this.fechaPartido,
+        team1: this.equipoUnoSeleccionado,
+        team2: this.equipoDosSeleccionado,
+      });
+      alert("Partido Introducido Correctamente");
     },
   },
 };
