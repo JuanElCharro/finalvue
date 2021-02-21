@@ -16,12 +16,12 @@
       <!-- Muestra en el desplegable solo los jugadores de ese equipo -->
       <option
         v-for="(jugadores, index) in listaJugadores"
-        v-on:click="mostrarBoton()"
+        v-on:click="mostrarBoton(), guardarPuntuacion(jugadores.team, jugadores.scores, jugadores.id)"
         :key="index"
       >
         <span
           v-if="jugadores.team == nombreEqVar"
-          v-on:click="guardarPuntuacion(jugadores.scores, jugadores.id)"
+          v-on:click="guardarPuntuacion(jugadores.team, jugadores.scores, jugadores.id)"
           >{{ jugadores.name }}
         </span>
       </option>
@@ -63,18 +63,15 @@ export default {
     mostrarBoton() {
       this.isHidden = false;
     },
-    guardarPuntuacion(score, id) {
-      this.puntuacion = score;
-      this.idJugador = id;
+    guardarPuntuacion(jugadoresEq, score, id) {
+      if (jugadoresEq == this.nombreEqVar) {
+        this.puntuacion = score;
+        this.idJugador = id; 
+      }
     },
     borrarJugador() {
-      axios.post("http://localhost:3000/players", {
-        
-          id: parseInt(this.idJugador, 10),
-          name: this.jugadorSeleccionado,
-          team: this.equipoSeleccionado,
-          scores: parseInt(this.puntuacion, 10),
-        
+      let idJ = parseInt(this.idJugador, 10);
+      axios.delete("http://localhost:3000/players"+"/"+idJ, {
       });
       alert("Jugador Eliminado Correctamente");
     },
