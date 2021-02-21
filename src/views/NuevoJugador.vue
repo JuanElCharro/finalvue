@@ -35,7 +35,7 @@
     />
     <br />
     
-    <button id="botonEnviar">Enviar</button>
+    <button @click="guardarJugador()" id="botonEnviar">Enviar</button>
   </div>
 </template>
 
@@ -44,11 +44,24 @@ import axios from "axios";
 export default {
   data: () => ({
     listaJugadores: [],
+    nombreJugador: "",
+    equipoJugador: "",
+    golesJugador: 0,
   }),
   created() {
     axios.get("http://localhost:3000/players").then((result) => {
       this.listaJugadores = result.data;
     });
+  },
+  methods: {
+    guardarJugador() {
+      axios.post("http://localhost:3000/players", {
+        name: this.nombreJugador,
+        team: this.equipoJugador,
+        scores: parseInt(this.golesJugador, 10),
+      });
+      alert("Jugador Introducido Correctamente");
+    },
   },
 };
 </script>
