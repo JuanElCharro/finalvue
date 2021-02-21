@@ -6,11 +6,11 @@
     </colgroup>
     <tr span v-for="(equipos, index) in listaEquipos" :key="index">
       <th v-on:click="metodoClick(equipos.name)">{{ equipos.name }}</th>
-      <td v-for="(jugadores, index) in listaJugadores" :key="index">
-        <span v-if="equipos.name == jugadores.team"
-          ><MostrarJugadores :nombreEquipo="nombreEqVar" />
-        </span>
-      </td>
+      <div v-for="(jugadores, index) in listaJugadores" :key="index">
+        <p v-if="equipos.name == jugadores.team"
+          ><span v-if="equipos.name == nombreEqVar">{{jugadores.name}}</span>
+        </p>
+      </div>
     </tr>
   </table>
 </template>
@@ -60,6 +60,10 @@ export default {
 </script>
 
 <style scoped>
+p{
+  font-weight: bold;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
