@@ -3,19 +3,20 @@
     <div id="eliminarJugadorTitulo">ELIMINAR JUGADOR</div>
 
     <select v-model="equipoSeleccionado" name="team">
-      <option v-for="(equipos, index) in listaEquipos" :key="index">
+      <option v-for="(equipos, index) in listaEquipos" v-on:click="guardar(equipos.name)" :key="index">
         {{ equipos.name }}
       </option>
     </select>
 
     <select v-model="jugadorSeleccionado" name="player">
-      <option v-for="(jugadores, index) in listaJugadores" :key="index">
-        {{ jugadores.name }}
+      <option v-for="(jugadores, index) in listaJugadores" v-on:click="mostrarBoton()" :key="index">
+        <span v-if="jugadores.team == nombreEqVar">{{ jugadores.name }}</span>
       </option>
     </select>
+
     <br />
 
-    <input id="botonEnviar" type="submit" value="Enviar" />
+    <button v-if="!isHidden" id="botonEnviar" value="Enviar">Enviar</button>
   </div>
 </template>
 
@@ -23,8 +24,12 @@
 import axios from "axios";
 export default {
   data: () => ({
+    isHidden: true,
     listaEquipos: [],
     listaJugadores: [],
+    equipoSeleccionado: "",
+    jugadorSeleccionado: "",
+    nombreEqVar: "",
   }),
   created() {
     axios.get("http://localhost:3000/clubs").then((result) => {
@@ -33,6 +38,14 @@ export default {
       axios.get("http://localhost:3000/players").then((result) => {
         this.listaJugadores = result.data;
       });
+  },
+  methods: {
+    guardar(dato) {
+      this.nombreEqVar = dato;
+    },
+    mostrarBoton() {
+      this.isHidden = false;
+    },
   },
 };
 </script>
