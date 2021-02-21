@@ -1681,6 +1681,18 @@
       "name": "PedroPorro",
       "team": "SD Eibar",
       "scores": 0
+    },
+    {
+      "name": "WTFlol",
+      "team": "SD Eibar",
+      "scores": 7,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "ElJuancho",
+      "team": "Real Madrid",
+      "scores": 10
     }
   ]
 }

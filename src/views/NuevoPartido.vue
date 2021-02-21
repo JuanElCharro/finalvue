@@ -84,7 +84,7 @@ export default {
         date: this.fechaPartido,
         team1: this.equipoUnoSeleccionado,
         team2: this.equipoDosSeleccionado,
-        score: [parseInt(this.golesEquipoUno), parseInt(this.golesEquipoDos)],
+        score: [parseInt(this.golesEquipoUno, 10), parseInt(this.golesEquipoDos, 10)],
       });
       alert("Partido Introducido Correctamente");
     },

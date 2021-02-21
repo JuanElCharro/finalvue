@@ -2,6 +2,13 @@
   <div id="encuadre">
     <div id="nuevoJugadorTitulo">NUEVO JUGADOR</div>
 
+    <div span v-for="(jugadores, index) in listaJugadores" :key="index">
+      <span
+        v-if="jugadores.id == listaJugadores.length"
+        v-on:load="guardarId(jugadores.id)"
+      ></span>
+    </div>
+
     <label for="nombre">Nombre Jugador:</label>
     <input
       v-model="nombreJugador"
@@ -44,6 +51,7 @@ import axios from "axios";
 export default {
   data: () => ({
     listaJugadores: [],
+    id: 0,
     nombreJugador: "",
     equipoJugador: "",
     golesJugador: 0,
@@ -56,11 +64,15 @@ export default {
   methods: {
     guardarJugador() {
       axios.post("http://localhost:3000/players", {
+        id: parseInt(this.id, 10),
         name: this.nombreJugador,
         team: this.equipoJugador,
         scores: parseInt(this.golesJugador, 10),
       });
       alert("Jugador Introducido Correctamente");
+    },
+    guardarId(id) {
+      this.id = id+1;
     },
   },
 };
