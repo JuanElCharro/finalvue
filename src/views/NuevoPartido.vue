@@ -78,6 +78,7 @@ export default {
         date: this.fechaPartido,
         team1: this.equipoUnoSeleccionado,
         team2: this.equipoDosSeleccionado,
+        score: [this.golesEquipoUno, this.golesEquipoDos],
       });
       alert("Partido Introducido Correctamente");
     },
