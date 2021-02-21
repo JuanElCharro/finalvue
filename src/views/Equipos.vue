@@ -6,7 +6,8 @@
       <tr span v-for="(equipos, index) in listaEquipos" :key="index">
         <th>{{ equipos.name }}</th>
         <td v-for="(jugadores, index) in listaJugadores" :key="index">
-          <span v-if="equipos.name == jugadores.team">{{ jugadores.name }} <button>Nuevo Jugador</button></span>
+          <span v-if="equipos.name == jugadores.team">{{ jugadores.name }} 
+            <button @click="nuevoJugador()">Nuevo Jugador</button></span>
         </td>
       </tr>
     </table>
@@ -28,6 +29,11 @@ export default {
         this.listaJugadores = result.data;
       });
   },
+  methods: {
+    nuevoJugador(){
+      window.location.href = 'http://localhost:8080/nuevojugador';
+    }
+  }
 };
 </script>
 
