@@ -1605,6 +1605,39 @@
         "2"
       ],
       "id": 164
+    },
+    {
+      "id": 165,
+      "round": "Jornada 16",
+      "date": "2021-02-02",
+      "team1": "Real Sociedad",
+      "team2": "Atlético Madrid",
+      "score": [
+        "5",
+        "1"
+      ]
+    },
+    {
+      "id": 166,
+      "round": "Jornada 16",
+      "date": "2021-02-04",
+      "team1": "Cádiz CF",
+      "team2": "RC Celta Vigo",
+      "score": [
+        "5",
+        "7"
+      ]
+    },
+    {
+      "id": 167,
+      "round": "Jornada 15",
+      "date": "2021-02-02",
+      "team1": "FC Barcelona",
+      "team2": "Sevilla FC",
+      "score": [
+        2,
+        1
+      ]
     }
   ],
   "players": [
@@ -1631,6 +1664,12 @@
       "team": "SD Eibar",
       "scores": 3,
       "id": 4
+    },
+    {
+      "id": 5,
+      "name": "PedroPorro",
+      "team": "SD Eibar",
+      "scores": 0
     }
   ]
 }

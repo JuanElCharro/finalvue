@@ -3,20 +3,35 @@
     <div id="eliminarJugadorTitulo">ELIMINAR JUGADOR</div>
 
     <select v-model="equipoSeleccionado" name="team">
-      <option v-for="(equipos, index) in listaEquipos" v-on:click="guardar(equipos.name)" :key="index">
+      <option
+        v-for="(equipos, index) in listaEquipos"
+        v-on:click="guardar(equipos.name)"
+        :key="index"
+      >
         {{ equipos.name }}
       </option>
     </select>
 
     <select v-model="jugadorSeleccionado" name="player">
-      <option v-for="(jugadores, index) in listaJugadores" v-on:click="mostrarBoton()" :key="index">
-        <span v-if="jugadores.team == nombreEqVar">{{ jugadores.name }}</span>
+      <!-- Muestra en el desplegable solo los jugadores de ese equipo -->
+      <option
+        v-for="(jugadores, index) in listaJugadores"
+        v-on:click="mostrarBoton()"
+        :key="index"
+      >
+        <span
+          v-if="jugadores.team == nombreEqVar"
+          v-on:click="guardarPuntuacion(jugadores.scores, jugadores.id)"
+          >{{ jugadores.name }}
+        </span>
       </option>
     </select>
 
     <br />
 
-    <button v-if="!isHidden" id="botonEnviar" value="Enviar">Enviar</button>
+    <button v-if="!isHidden" @click="borrarJugador()" id="botonEnviar">
+      Enviar
+    </button>
   </div>
 </template>
 
@@ -29,6 +44,8 @@ export default {
     listaJugadores: [],
     equipoSeleccionado: "",
     jugadorSeleccionado: "",
+    puntuacion: 0,
+    idJugador: 0,
     nombreEqVar: "",
   }),
   created() {
@@ -45,6 +62,21 @@ export default {
     },
     mostrarBoton() {
       this.isHidden = false;
+    },
+    guardarPuntuacion(score, id) {
+      this.puntuacion = score;
+      this.idJugador = id;
+    },
+    borrarJugador() {
+      axios.post("http://localhost:3000/players", {
+        
+          id: parseInt(this.idJugador, 10),
+          name: this.jugadorSeleccionado,
+          team: this.equipoSeleccionado,
+          scores: parseInt(this.puntuacion, 10),
+        
+      });
+      alert("Jugador Eliminado Correctamente");
     },
   },
 };

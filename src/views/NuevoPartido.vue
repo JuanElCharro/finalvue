@@ -2,9 +2,15 @@
   <div id="encuadre">
     <div id="nuevoPartidoTitulo">NUEVO PARTIDO</div>
 
-    
+    <div span v-for="(partidos, index) in listaPartidos" :key="index">
+      <span
+        v-if="partidos.id == listaPartidos.length"
+        v-on:load="guardarId(partidos.id)"
+      >
+        {{ partidos.id }} </span>
+    </div>
 
-    <select v-model="jornada" name="team1">
+    <select v-model="jornada" name="jornada">
       <option v-for="(partidos, index) in listaPartidos" :key="index">
         {{ partidos.round }}
       </option>
@@ -74,13 +80,17 @@ export default {
   methods: {
     guardarPartido() {
       axios.post("http://localhost:3000/matches", {
+        id: parseInt(this.id, 10),
         round: this.jornada,
         date: this.fechaPartido,
         team1: this.equipoUnoSeleccionado,
         team2: this.equipoDosSeleccionado,
-        score: [this.golesEquipoUno, this.golesEquipoDos],
+        score: [parseInt(this.golesEquipoUno), parseInt(this.golesEquipoDos)],
       });
       alert("Partido Introducido Correctamente");
+    },
+    guardarId(id) {
+      this.id = id+1;
     },
   },
 };
