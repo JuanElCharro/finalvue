@@ -7,8 +7,17 @@
     <tr span v-for="(equipos, index) in listaEquipos" :key="index">
       <th v-on:click="metodoClick(equipos.name)">{{ equipos.name }}</th>
       <div v-for="(jugadores, index) in listaJugadores" :key="index">
-        <p v-if="equipos.name == jugadores.team"
-          ><span v-if="equipos.name == nombreEqVar">{{jugadores.name}}</span>
+        <p v-if="equipos.name == jugadores.team">
+          <span 
+            v-if="equipos.name == nombreEqVar"
+            v-on:click="mostrarInfo(jugadores.id, jugadores.scores)"
+            >{{ jugadores.name }}
+            <span id="spanJugador" v-if="jugadores.id == id && jugadores.scores == scores"
+              >- [ ID Jugador: {{ jugadores.id }} ] [ Goles Jugador: {{ jugadores.scores }} ]</span
+            >
+            <button>Sumar Goles</button>
+            <button>Eliminar</button>
+          </span>
         </p>
       </div>
     </tr>
@@ -17,14 +26,14 @@
 
 <script>
 import axios from "axios";
-import MostrarJugadores from "../components/MostrarJugadores.vue";
 export default {
-  components: { MostrarJugadores },
   data: () => ({
     listaEquipos: [],
     listaJugadores: [],
     nombreEqVar: 0,
     contador: 0,
+    id: 0,
+    scores: "",
   }),
   created() {
     axios.get("http://localhost:3000/clubs").then((result) => {
@@ -48,19 +57,34 @@ export default {
     metodoClick(dato) {
       this.nombreEqVar = dato;
     },
+    mostrarInfo(id, scores) {
+      this.id = id;
+      this.scores = scores;
+    },
     computed: {
       listaJugadores: function () {
         if (this.nombreEqVar == equipos.name) {
           true;
         }
-      }
-    }
+      },
+    },
   },
 };
 </script>
 
 <style scoped>
-p{
+#spanJugador{
+  color: rgb(0, 33, 141);
+}
+
+button {
+  background-color: rgb(236, 235, 255);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 5px;
+  margin-left: 5px;
+}
+
+p {
   font-weight: bold;
 }
 
