@@ -6,8 +6,7 @@
       <span
         v-if="partidos.id == listaPartidos.length"
         v-on:load="guardarId(partidos.id)"
-      >
-        {{ partidos.id }} </span>
+      ></span>
     </div>
 
     <select v-model="jornada" name="jornada">
