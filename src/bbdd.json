@@ -1565,19 +1565,7 @@
       "id": 2,
       "name": "Sergio Ramos",
       "team": "Real Madrid",
-      "scores": 2
-    },
-    {
-      "id": 3,
-      "name": "WASDWASD",
-      "team": "FC Barcelona",
-      "scores": 1
-    },
-    {
-      "id": 4,
-      "name": "Halfonso",
-      "team": "FC Barcelona",
-      "scores": 5
+      "scores": 69
     }
   ]
 }

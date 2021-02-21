@@ -8,15 +8,34 @@
       <th v-on:click="metodoClick(equipos.name)">{{ equipos.name }}</th>
       <div v-for="(jugadores, index) in listaJugadores" :key="index">
         <p v-if="equipos.name == jugadores.team">
-          <span 
+          <span
             v-if="equipos.name == nombreEqVar"
             v-on:click="mostrarInfo(jugadores.id, jugadores.scores)"
             >{{ jugadores.name }}
-            <span id="spanJugador" v-if="jugadores.id == id && jugadores.scores == scores"
-              >- [ ID Jugador: {{ jugadores.id }} ] [ Goles Jugador: {{ jugadores.scores }} ]</span
+            <span
+              id="spanJugador"
+              v-if="jugadores.id == id && jugadores.scores == scores"
+              >- [ ID Jugador: {{ jugadores.id }} ] [ Goles Jugador:
+              {{ jugadores.scores }} ]
+            </span>
+            <input
+              v-if="!isHidden"
+              v-model="golesASumar"
+              type="number"
+              id="golesASumar"
+              name="golesASumar"
+              min="0"
+              max="100"
+            />
+
+            <button
+              v-if="!isHidden"
+              @click="
+                sumarGoles(jugadores.id, jugadores.name, jugadores.team, jugadores.scores)"
             >
-            <button>Sumar Goles</button>
-            <button>Eliminar</button>
+              Sumar Goles
+            </button>
+            <button v-if="!isHidden" @click="borrarJugador()">Eliminar</button>
           </span>
         </p>
       </div>
@@ -28,12 +47,17 @@
 import axios from "axios";
 export default {
   data: () => ({
+    isHidden: true,
     listaEquipos: [],
     listaJugadores: [],
+    golesASumar: 0,
     nombreEqVar: 0,
     contador: 0,
+
     id: 0,
-    scores: "",
+    nombre: "",
+    team: "",
+    scores: 0,
   }),
   created() {
     axios.get("http://localhost:3000/clubs").then((result) => {
@@ -60,7 +84,28 @@ export default {
     mostrarInfo(id, scores) {
       this.id = id;
       this.scores = scores;
+      this.isHidden = false;
     },
+    sumarGoles(id, nombre, team, scores) {
+      this.scores = parseInt(scores, 10) + parseInt(this.golesASumar, 10);
+      this.id = parseInt(this.id, 10);
+      this.nombre = nombre;
+      this.team = team;
+
+      axios.put("http://localhost:3000/players" + "/" + id, {
+        id: parseInt(this.id, 10),
+        name: this.nombre,
+        team: this.team,
+        scores: parseInt(this.scores, 10),
+      });
+      alert("Goles añadidos Correctamente");
+    },
+    borrarJugador() {
+      let idJ = parseInt(this.id, 10);
+      axios.delete("http://localhost:3000/players" + "/" + idJ, {});
+      alert("Jugador Eliminado Correctamente");
+    },
+
     computed: {
       listaJugadores: function () {
         if (this.nombreEqVar == equipos.name) {
@@ -73,7 +118,7 @@ export default {
 </script>
 
 <style scoped>
-#spanJugador{
+#spanJugador {
   color: rgb(0, 33, 141);
 }
 
