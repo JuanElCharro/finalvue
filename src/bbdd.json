@@ -171,7 +171,11 @@
       "round": "Jornada 1",
       "date": "2020-09-13",
       "team1": "Real Madrid",
-      "team2": "Getafe CF"
+      "team2": "Getafe CF",
+      "score": [
+        1,
+        5
+      ]
     },
     {
       "id": 6,
@@ -255,7 +259,11 @@
       "round": "Jornada 2",
       "date": "2020-09-20",
       "team1": "Levante UD",
-      "team2": "Atlético Madrid"
+      "team2": "Atlético Madrid",
+      "score": [
+        69,
+        77
+      ]
     },
     {
       "id": 14,
@@ -1567,6 +1575,17 @@
         78,
         56
       ]
+    },
+    {
+      "id": 159,
+      "round": "Jornada 1",
+      "date": "2021-02-02",
+      "team1": "Granada CF",
+      "team2": "Getafe CF",
+      "score": [
+        1,
+        0
+      ]
     }
   ],
   "players": [
@@ -1574,7 +1593,7 @@
       "id": 1,
       "name": "Leo Messi",
       "team": "FC Barcelona",
-      "scores": 5
+      "scores": 60
     },
     {
       "id": 2,

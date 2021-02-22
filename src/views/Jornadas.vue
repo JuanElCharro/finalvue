@@ -99,7 +99,6 @@ export default {
         ],
       });
       alert("Partido Introducido Correctamente");
-      alert(this.id);
     },
     guardarId(id) {
       this.id = id + 1;
