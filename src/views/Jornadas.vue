@@ -1,6 +1,11 @@
 <template>
   <div id="encuadre">
     <div id="jornadaTitulo">JORNADAS</div>
+    <!--
+      Al sumar goles se muestra en todos los input de los 
+      partidos sin goles, pero al pulsar en guardar solo 
+      guarda en el JSON el escogido para sumar los goles.
+    -->
 
     <div span v-for="(partidos, index) in listaPartidos" :key="index">
       <span
