@@ -29,7 +29,10 @@
 
     <br />
 
-    <button v-if="!isHidden" @click="borrarJugador()" id="botonEnviar">
+    <button v-if="!isHidden == false" @click="borrarJugador()" id="botonEnviar" disabled>
+      Enviar (disabled)
+    </button>
+    <button v-else-if="!isHidden == true" @click="borrarJugador()" id="botonEnviar">
       Enviar
     </button>
   </div>
