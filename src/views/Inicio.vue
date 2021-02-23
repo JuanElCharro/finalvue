@@ -5,7 +5,7 @@
       alt="La Liga"
     />
     <div span v-for="(partidos, index) in listaPartidos" :key="index">
-      <p v-if="partidos.id == listaPartidos.length">Temporada: {{ partidos.round }}</p>
+      <p v-if="partidos.id == listaPartidos.length">Temporada: 2020-2021 <br><br> Último partido: {{ partidos.team1 }} - {{ partidos.score }} - {{ partidos.team2 }}</p>
     </div>
   </div>
 </template>
