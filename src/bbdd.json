@@ -1577,6 +1577,12 @@
       "name": "Sergio Ramos",
       "team": "Real Madrid",
       "scores": 2
+    },
+    {
+      "id": 3,
+      "name": "JuanElCharro",
+      "team": "FC Barcelona",
+      "scores": 69
     }
   ]
 }
