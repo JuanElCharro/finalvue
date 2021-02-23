@@ -68,7 +68,7 @@ export default {
     listaJugadores: [],
     equipox: 0,
 
-    id: 0,
+    id: 0, 
     nombreJugador: "",
     equipoJugador: "",
     golesJugador: 0,
