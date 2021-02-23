@@ -1563,6 +1563,17 @@
         5,
         4
       ]
+    },
+    {
+      "id": 159,
+      "round": "Jornada 10",
+      "date": "2021-02-04",
+      "team1": "Real Valladolid CF",
+      "team2": "Valencia CF",
+      "score": [
+        2,
+        1
+      ]
     }
   ],
   "players": [
@@ -1570,19 +1581,13 @@
       "id": 1,
       "name": "Leo Messi",
       "team": "FC Barcelona",
-      "scores": 5
+      "scores": 7
     },
     {
       "id": 2,
       "name": "Sergio Ramos",
       "team": "Real Madrid",
       "scores": 2
-    },
-    {
-      "id": 3,
-      "name": "JuanElCharro",
-      "team": "FC Barcelona",
-      "scores": 69
     }
   ]
 }
